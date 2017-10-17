@@ -64,3 +64,4 @@ void search(char* name, struct node* leaf, Compare cmp)
   return;
 }
 
+#endif
