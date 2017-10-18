@@ -17,7 +17,7 @@ void insert(char* name, struct node** leaf, Compare cmp)
   int res;
   if( *leaf == NULL ){
     *leaf = (struct node*) malloc( sizeof( struct node ) );
-    (*leaf)->value = malloc( strlen (name)+1);
+    (*leaf)->value = malloc( strlen(name)+1);
     strcpy ((*leaf)->value,name);
     (*leaf)->left = NULL;
     (*leaf)->right = NULL;
@@ -46,7 +46,6 @@ void in_order(struct node *root)
     in_order(root->right);
   }
 }
-
 void search(char* name, struct node* leaf, Compare cmp)
 {
   int res;
@@ -62,5 +61,46 @@ void search(char* name, struct node* leaf, Compare cmp)
   else printf("\nNot Found\n");
   return;
 }
+
+/*struct node* delete(char* name, struct node* leaf, Compare cmp)
+{
+  int res;
+  if(leaf == NULL)
+    return NULL;
+  res = cmp(name, leaf->value);
+  if(res < 0)
+    leaf->left = delete(name, leaf->left, cmp);
+  else if(res > 0)
+    leaf->right = delete(name, leaf->right,cmp);
+  else{
+    if(leaf->left == NULL && leaf->right  == NULL){
+      free(leaf);
+      leaf=NULL;
+    }
+    else if(leaf->left == NULL){
+      struct node *temp = leaf;
+      leaf = leaf->right;
+    }
+    else if(leaf->right == NULL){
+      struct node *temp = leaf;
+      leaf = leaf->left;
+    }
+    else{
+      struct node *temp = FindMin(leaf->right);
+      leaf->value = temp->value;
+      leaf->right = delete(temp->value,leaf->right,cmp);
+    }
+  }
+  return leaf;
+}
+
+struct node* FindMin(struct node* leaf)
+{
+  if(leaf == NULL)
+    return NULL;
+  if(leaf->left != NULL)
+    return FindMin(leaf->left);
+  return leaf;
+  }*/
 
 #endif

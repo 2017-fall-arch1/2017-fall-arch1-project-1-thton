@@ -1,7 +1,7 @@
 all: Demo
 
 Demo: Employees.o
-	cc -o $@ $^
+	cc Employees.o -o Demo
 
 Employees.o: Employees.c Btree.h
 	cc -c Employees.c
