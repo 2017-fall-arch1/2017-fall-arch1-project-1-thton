@@ -17,13 +17,13 @@ int main()
       
       if(option =='i'){
 	printf("\nPlease enter a name\n");
-	scanf("%s",value);
+	scanf("%s",&value);
 	printf("Inserting %s\n",value);
 	insert(value, &treeRoot, (Compare)CmpStr);
       }
       else if(option =='s'){
 	printf("\nPlease enter a name to look for\n");
-	scanf("%s",value);
+	scanf("%s",&value);
 	search(value, treeRoot, (Compare)CmpStr);
       }
       else if(option =='p'){
