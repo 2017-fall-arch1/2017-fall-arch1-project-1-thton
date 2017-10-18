@@ -1,8 +1,7 @@
 #include <stdio.h>
-#include <conio.h>
 #include <stdlib.h>
 #include <string.h>
-#inlcude "Btree.h"
+#include "Btree.h"
 
 int main()
 {
@@ -15,9 +14,15 @@ int main()
       menu();
       
       option = getch();
+
+      if(option =='i'){
+	printf("Please enter a name");
+	scanf("%s",&value);
+	insert(value, &treeRoot, (Compare)CmpStr);
+      }
       
     }
-  
+  return 0;
 }
 
 void menu()
@@ -25,5 +30,5 @@ void menu()
   printf("\nPress 'i' to insert a name\n");
   printf("Press 's' to search for a name\n");
   printf("Press 'p' to print the tree inorder\n");
-  printf("Press 'q' to quit");
+  printf("Press 'q' to quit\n");
 }
